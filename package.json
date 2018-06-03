@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass source/css/style.scss dist/style.css",
-    "concat-css": "cat dist/css/*.css > dist/style.css",
+    "concat-css": "cat dist/*.css > dist/style.css",
     "autoprefix": "postcss dist/style.css --use autoprefixer -d dist/",
     "minifycss": "postcss dist/style.css --use cssnano -d dist/",
     "allcss": "npm run sass && npm run concat-css && npm run autoprefix && npm run minifycss",
-    "watch": "watch \"npm run allcss\" source/"
+    "watch": "watch \"npm run allcss\" source/",
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "autoprefixer": "^8.5.0",
     "cssnano": "^3.10.0",
     "install": "^0.11.0",
+    "live-server": "^1.2.0",
     "node-sass": "^4.9.0",
     "npm": "^6.1.0",
     "postcss-cli": "^5.0.0",

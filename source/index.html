@@ -6,52 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Distortion</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500,700" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Raleway', sans-serif;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 2.5em;
-            text-align: center;
-        }
-
-        #num {
-            font-size: 1.5em;
-            transform: translateY(-100px);
-            transition: transform 1.2s cubic-bezier(0.63, 0.18, 0.35, 0.95);
-        }
-
-        .active {
-            transform: translateY(0);
-        }
-
-        h4 {
-            text-align: center;
-        }
-        #my-svg {
-           
-            padding: 10vh 10vw;
-            animation: queAnimation 10s  infinite;
-        }
-        
-        @keyframes queAnimation {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" type="text/css" href="../dist/style.css" />
+ </head>
 
 <body>
     <div id="template">
@@ -67,6 +23,6 @@
  
 
 </body>
-<script src="js/main.js"></script>
+<script src="js/functions.js"></script>
 
 </html>

@@ -1,26 +1,39 @@
-console.log("this is the menu file");
-window.addEventListener("load", ()=>{
-    let items = ["home", "about"];
-    let parent = document.createElement("ul");
-    let menu = document.querySelector("#menu");
-    for(let i=0; i<items.length; i++){
-        let el = document.createElement("li")
-        let link = document.createElement("a");
-        link.textContent=items[i];
-        let path = "./";
-            if(items[i]!="home"){
-                path = items[i];
-            }
+"use strict";
+function loop(){
+let link = "https://kea-alt-del.dk/kata-distortion/";
+//fetch the json inside the link
+function getData(link) {
+    fetch(link)
+        .then(res => res.json())
+        .then(show);
+}
 
-        link.setAttribute("href", path);
-        link.addEventListener('click',(e)=>{
-            e.preventDefault();
 
-            history.pushState({}, items[i], path);
-        });
-        el.classList.add("mui--text-black-54", "mui--text-body2");
-        el.appendChild(link);
-        parent.appendChild(el);
+//json loaded => show json in console, data changes every 10 seconds, set interval
+
+function show(json) {
+    console.log(json.inQueue);    
+    document.querySelector("#num").textContent = json.inQueue;
+    // document.querySelector("#num").classList.add('active');
+    document.querySelector(".time").textContent = json.inQueue * 1.25;
+ }
+
+getData(link);
+
+};
+
+//load svg
+
+function loadSVG(a,b){ 
+    fetch(a)
+    .then(function(response){
+        return response.text();
+    })
+    .then(function(data){
+        document.querySelector(b).innerHTML = data;
+    })
+    
     }
-    menu.appendChild(parent);
-});
+// loadSVG("que.svg","#my-svg");
+
+setInterval(loop,1000);
