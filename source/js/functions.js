@@ -1,26 +1,43 @@
 "use strict";
-function loop(){
-let link = "https://kea-alt-del.dk/kata-distortion/";
-//fetch the json inside the link
-function getData(link) {
-    fetch(link)
-        .then(res => res.json())
-        .then(show);
-}
+
+function loop() {
+
+    let link = 'https://kea-alt-del.dk/kata-distortion/';
+
+    // Fetch json from the link
+    function getData( link ) {
+        fetch( link )
+            .then( res => res.json() )
+            .then( show );
+
+    }
 
 
-//json loaded => show json in console, data changes every 10 seconds, set interval
+    // Show json in console
+    function show( json ) {
 
-function show(json) {
-    console.log(json.inQueue);    
-    document.querySelector("#num").textContent = json.inQueue;
-    // document.querySelector("#num").classList.add('active');
-    document.querySelector(".time").textContent = json.inQueue * 1.25;
- }
+        let template = document.querySelector( '#template' );
+        let container = document.querySelector( '#container' );
 
-getData(link);
+        let clon = template.cloneNode( true ).content;
 
-};
+        let queueNumber = json.inQueue * 4;
+
+        clon.querySelector('.inQueue').style.height = queueNumber + '%';
+        clon.querySelector('.queueNumber').textContent = json.inQueue;
+
+        container.appendChild( clon );
+
+        console.log( json );
+        console.log( json.inQueue );
+
+        document.querySelector( '#name' ).textContent = json.name;
+        document.querySelector( '#number' ).textContent = json.inQueue;
+    }
+
+    getData( link );
+
+ };
 
 //load svg
 
@@ -36,4 +53,8 @@ function loadSVG(a,b){
     }
 // loadSVG("que.svg","#my-svg");
 
-setInterval(loop,1000);
+// Set interval - data changes every 10 seconds
+setInterval(loop,10000);
+
+// Read the script when DOM is downloaded
+document.addEventListener("DOMContentLoaded", loop);

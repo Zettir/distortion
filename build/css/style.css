@@ -1,0 +1,284 @@
+/*
+GitHub: https://github.com/Zettir/distortion
+Author: Niels Krahmer Gerdes
+Author URI: http://niels-gerdes.dk
+Version: 1.0.0
+*/
+/* --------------------------------------------------------------
+   CSS | Import
+   -------------------------------------------------------------- */
+/* ----------------------------------------------------------
+	CSS | Reset
+   ---------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  outline: none;
+  list-style: none; }
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  line-height: 1; }
+
+a, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+/* Text-level semantics
+   ---------------------------------------------------------- */
+b, strong {
+  font-weight: bolder; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+code, kbd, samp, pre {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  text-decoration: none;
+  vertical-align: baseline;
+  background: transparent; }
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  box-sizing: content-box;
+  display: block;
+  overflow: visible;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/* Embedded content
+   ---------------------------------------------------------- */
+img {
+  border-style: none; }
+
+/* Forms
+   ---------------------------------------------------------- */
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0; }
+
+button {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none; }
+
+button, input {
+  overflow: visible; }
+
+button, select {
+  text-transform: none; }
+
+input, select {
+  vertical-align: middle; }
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+legend {
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+progress {
+  vertical-align: baseline; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+/* Interactive
+   ---------------------------------------------------------- */
+summary {
+  display: list-item; }
+
+/* Misc
+   ---------------------------------------------------------- */
+template {
+  display: none; }
+
+[hidden], .none {
+  display: none; }
+
+/**
+ * Body CSS
+ */
+html {
+  background: #553399; }
+
+body {
+  background: linear-gradient(to bottom, #7755cc 0%, #553399 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  padding: 40px 40px 0;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  text-align: center; }
+
+#queue {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2em;
+  z-index: 1; }
+  #queue #number {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    min-width: 300px;
+    height: 300px;
+    min-height: 300px;
+    margin: 10px auto;
+    padding: 75px 40px;
+    font-size: 4em;
+    border: 4px solid white;
+    border-radius: 50%; }
+  #queue #text {
+    flex-grow: 1; }
+
+#container {
+  display: flex;
+  width: 80vw;
+  max-width: 800px;
+  height: inherit;
+  min-height: 250px;
+  max-height: 500px;
+  margin: 20px auto 0;
+  padding: 0 10px;
+  border-bottom: 4px solid #7755cc;
+  z-index: 0; }
+  #container .inQueue {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end;
+    width: 10%;
+    height: 100%;
+    padding: 10px 10px 0; }
+    #container .inQueue p {
+      background: #553399;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      height: calc(100% + 4px);
+      margin-bottom: -4px;
+      border: 2px solid #7755cc;
+      border-bottom: none; }
+      #container .inQueue p span {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        min-height: 30px;
+        margin: 10px auto -40px;
+        padding: 6px 0;
+        font-size: .8em;
+        border: 2px solid white;
+        border-radius: 50%; }

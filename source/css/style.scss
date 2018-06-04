@@ -1,54 +1,103 @@
+/*
+GitHub: https://github.com/Zettir/distortion
+Author: Niels Krahmer Gerdes
+Author URI: http://niels-gerdes.dk
+Version: 1.0.0
+*/
+/* --------------------------------------------------------------
+   CSS | Import
+   -------------------------------------------------------------- */
+@import "reset";
+
 /**
  * Body CSS
  */
-$textshadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-
-html,
+html {
+  background: rgba(85,51,153,1);
+}
 body {
-  height: 100%;
+  background: linear-gradient(to bottom, rgba(119,85,204,1) 0%,rgba(85,51,153,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  padding: 40px 40px 0;;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-html,
-body,
-input,
-textarea,
-buttons {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: $textshadow;
+#queue {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2em;
+  z-index: 1;
+
+  #number {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    min-width: 300px;
+    height: 300px;
+    min-height: 300px;
+    margin: 10px auto;
+    padding: 75px 40px;
+    font-size: 4em;
+    border: 4px solid white;
+    border-radius: 50%;
+  }
+  #text {
+    flex-grow: 1;
+  }
 }
 
+#container {
+  display: flex;
+  width: 80vw;
+  max-width: 800px;
+  height: inherit;
+  min-height: 250px;
+  max-height: 500px;
+  margin: 20px auto 0;
+  padding: 0 10px;
+  border-bottom: 4px solid rgba(119,85,204,1);
+  z-index: 0;
 
-/**
- * Sidebar CSS
- */
 
-#sidebar {
-  background-color: #E57373;
-  padding: 15px;
-}
-
-@media (min-width: 768px) {
-  #sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 180px;
+  .inQueue {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end;
+    width: 10%;
     height: 100%;
-    padding-top: 30px;
+    padding: 10px 10px 0;
+    
+    p {
+      background: rgba(85,51,153,1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      height: calc(100% + 4px);
+      margin-bottom: -4px;
+      border: 2px solid rgba(119,85,204,1);
+      border-bottom: none;
+
+      span {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        min-height: 30px;
+        margin: 10px auto -40px;
+        padding: 6px 0;
+        font-size: .8em;
+        border: 2px solid white;
+        border-radius: 50%;
+      }
+    }
   }
 }
-
-
-/**
- * Content CSS
- */
-@media (min-width: 768px) {
-  #content {
-    margin-left: 180px;
-  }
-}
-
-/**
- * Imported CSS
- */

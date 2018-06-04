@@ -4,12 +4,17 @@
   "description": "This is a forked repo from https://github.com/jofhatkea/distortion",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass source/css/style.scss dist/style.css",
-    "concat-css": "cat dist/*.css > dist/style.css",
-    "autoprefix": "postcss dist/style.css --use autoprefixer -d dist/",
-    "minifycss": "postcss dist/style.css --use cssnano -d dist/",
+    "sass": "node-sass source/css/style.scss build/css/style.css",
+  
+    "concat-css": "cat build/css/*.css > build/css/all.css",
+  
+    "autoprefix": "postcss build/css/all.css --use autoprefixer -d build/css/",
+  
+    "minifycss": "postcss build/css/all.css --use cssnano -d build/css/",
+
     "allcss": "npm run sass && npm run concat-css && npm run autoprefix && npm run minifycss",
-    "watch": "watch \"npm run allcss\" source/",
+  
+    "watch": "watch \"npm run allcss\" source/"
   },
   "repository": {
     "type": "git",
